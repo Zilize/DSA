@@ -179,7 +179,9 @@ struct state {
 第二要表示策略，用自然语言表示就是船上有2人0鬼/1人0鬼/……，但是不能是0人0鬼。这些策略事实上是作为状态的**增量**存在的，所以也可以用`state`结构体表示，由于有5种策略，所以可以用数组来表示。下面将0人0鬼这种不合法的策略放置在数组的零序号处。
 
 ```c++
+{% raw %}
 state d[6] = {{0, 0}, {2, 0}, {1, 0}, {1, 1}, {0, 1}, {0, 2}};  //保存策略
+{% endraw %}
 ```
 
 还要表述路径，路径事实上就是状态的序列，或者策略的序列，这里我们把两个都记录下来。用`state`结构体构成的数组可以表示状态的序列，用整型数组可以表示策略的序列（用序号表示策略）。
@@ -231,7 +233,9 @@ struct state {
 state s[20];  //状态转移记录数组
 int choice[20] = {0};  //决策记录数组
 
+{% raw %}
 state d[6] = {{0, 0}, {2, 0}, {1, 0}, {1, 1}, {0, 1}, {0, 2}};  //保存策略
+{% endraw %}
 
 void display(int k);
 void transfer_state(int k);
@@ -362,7 +366,9 @@ using namespace std;
 int s[20][3];  //0-Wolf, 1-Sheep, 2-Vegetable
 int choice[20];  //3表示谁都不带
 
+{% raw %}
 int d[4][3] = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}, {0, 0, 0}};  //几种策略的增量
+{% endraw %}
 
 void display(int k);
 void transfer_state(int k);
@@ -510,9 +516,11 @@ using namespace std;
 int s[50][3];
 int choice[50] = {0};  //s和choice的关系是在第k个s采取第k个choice
 
+{% raw %}
 int vol[3] = {80, 50, 30};  //表示水杯的容量
 int d[6][2] = {{0, 1}, {0, 2}, {1, 0}, {1, 2}, {2, 0}, {2, 1}};  //策略的数字表述,字符表述如下行
 string str[6] = {"\nA B", "\nA C", "\nB A", "\nB C", "\nC A", "\nC B"};
+{% endraw %}
 
 void display(int k);
 void transfer_state(int k);
